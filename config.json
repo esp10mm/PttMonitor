@@ -7,13 +7,13 @@
     {
       "url": "https://www.ptt.cc/bbs/Gossiping/index.html",
       "page": 3,
-      "thresh": 30,
+      "threshold": 30,
 	    "keywords":["柯p"]
     },
     {
       "url": "https://www.ptt.cc/bbs/StupidClown/index.html",
       "page": 5,
-      "thresh": 20
+      "threshold": 20
     }
   ]
 }
