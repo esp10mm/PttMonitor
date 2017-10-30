@@ -2,8 +2,9 @@
   "name": "PttMonitor",
   "version": "0.0.1",
   "dependencies": {
+    "cheerio": "*",
     "nodemailer": "*",
-    "request": "*",
-    "cheerio": "*"
+    "public-ip": "^1.1.0",
+    "request": "*"
   }
 }
