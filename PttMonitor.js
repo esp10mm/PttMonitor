@@ -16,7 +16,8 @@ var receiver;
 var history = [];
 var errFlag = false;
 
-setInterval(init, 180000);
+init();
+// setInterval(init, 180000);
 
 process.on('uncaughtException', function(err) {
   console.log("ERROR!");
@@ -27,7 +28,9 @@ process.on('uncaughtException', function(err) {
 function init() {
   errFlag = false;
   var file = fs.readFileSync('./config.json');
+  var hfile = fs.readFileSync('./history.json');
   config = JSON.parse(file);
+  history = JSON.parse(hfile);
 
   target = config.target;
   smtpUser = config.smtpUser;
@@ -175,8 +178,11 @@ function clean() {
       history.splice(k, 1);
     }
   }
-  for (var k in history)
+  for (var k in history) {
     history[k].live = false;
+  }
+  const stream = fs.createWriteStream('history.json');
+  stream.write(JSON.stringify(history));
 }
 
 function sendEmail() {
